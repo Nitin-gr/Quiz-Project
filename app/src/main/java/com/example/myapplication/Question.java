@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 public class Question {
+
     private String question;
     private String option1, option2, option3, option4;
     private String correctAnswer;

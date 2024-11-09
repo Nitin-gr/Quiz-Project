@@ -2,48 +2,32 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import android.view.View;
+import android.widget.Button;
 
-import java.util.Arrays;
-import java.util.List;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class HomeActivity extends AppCompatActivity {
+
+    private Button natureButton, scienceButton, csButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        List<String> topics = Arrays.asList("Nature", "Science", "Computer Science");
+        natureButton = findViewById(R.id.natureButton);
+        scienceButton = findViewById(R.id.scienceButton);
+        csButton = findViewById(R.id.csButton);
 
-        RecyclerView topicRecyclerView = findViewById(R.id.topicRecyclerView);
-        topicRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        topicRecyclerView.setAdapter(new TopicAdapter(topics, this::openQuizScreen));
+        natureButton.setOnClickListener(v -> startQuiz("Nature"));
+        scienceButton.setOnClickListener(v -> startQuiz("Science"));
+        csButton.setOnClickListener(v -> startQuiz("Computer Science"));
     }
 
-    private void openQuizScreen(String topic) {
+    private void startQuiz(String topic) {
         Intent intent = new Intent(HomeActivity.this, QuizActivity.class);
         intent.putExtra("TOPIC", topic);
         startActivity(intent);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.home_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.history) {
-            startActivity(new Intent(this, HistoryActivity.class));
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 }
