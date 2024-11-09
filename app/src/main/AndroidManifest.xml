@@ -23,10 +23,21 @@
             </intent-filter>
         </activity>
 
-        <!-- HomeActivity (MainActivity) is the main app screen -->
         <activity
             android:name=".HomeActivity"
-            android:exported="true" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <!-- Quiz Activity for the quiz interface -->
+        <activity
+            android:name=".QuizActivity"
+            android:exported="true">
+        </activity>
 
     </application>
 
