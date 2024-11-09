@@ -6,11 +6,21 @@
     android:gravity="center"
     android:padding="16dp">
 
+    <!-- Displaying Score -->
     <TextView
         android:id="@+id/scoreText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Your Score: "
         android:textSize="24sp"
+        android:textColor="@android:color/black"/>
+
+    <!-- Displaying Percentage -->
+    <TextView
+        android:id="@+id/percentageText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Percentage: "
+        android:textSize="20sp"
         android:textColor="@android:color/black"/>
 </LinearLayout>
